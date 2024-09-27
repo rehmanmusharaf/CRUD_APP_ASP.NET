@@ -32,7 +32,9 @@ namespace ASP_CRUD_APP.Controllers
             };
             await dbContext.Products.AddAsync(product);
             await dbContext.SaveChangesAsync();
-            return View();
+            return RedirectToAction("List", "Products");
+
+            //    return View();
         }
         [HttpGet]
         public async Task<IActionResult> List()

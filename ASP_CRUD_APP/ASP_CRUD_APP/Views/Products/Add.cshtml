@@ -4,7 +4,7 @@
 @{
 }
 @model ASP_CRUD_APP.Models.AddProductViewModel
-<h1 class="text-center otherclass">ADD Student</h1>
+<h3 class="text-center otherclass">ADD Products</h3>
 <form    method="post">
     <div class="form-group">
         <label asp-for="ProductName" class="control-label"></label>
@@ -43,7 +43,7 @@
         <span asp-validation-for="ProductCategories" class="text-danger"></span>
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary mt-2">Submit</button>
 </form>
 
                     @* @foreach (var category in Model.AvailableCategories)
