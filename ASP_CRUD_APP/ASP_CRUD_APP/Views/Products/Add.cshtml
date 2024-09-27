@@ -4,6 +4,7 @@
 @{
 }
 @model ASP_CRUD_APP.Models.AddProductViewModel
+
 <h3 class="text-center otherclass">ADD Products</h3>
 <form    method="post">
     <div class="form-group">
@@ -30,10 +31,10 @@
         <span asp-validation-for="Tags" class="text-danger"></span>
     </div>
 
+        @* Assuming you will populate ProductCategories dynamically 
     <div class="form-group">
          <label asp-for="ProductCategories" class="control-label">Categories</label>
              <select asp-for="ProductCategories" class="form-control" multiple>
-        @* Assuming you will populate ProductCategories dynamically *@
              <option value="1">Category One</option>
              <option value="2">Category Two</option>
              <option value="3">Category Three</option>
@@ -41,12 +42,13 @@
 
                  </select>
         <span asp-validation-for="ProductCategories" class="text-danger"></span>
-    </div>
+    </div>*@
+
+ @*<select>        @foreach (var category in Model.ProductCategories)
+                      {
+                           <option value="@category.CategoryID">@category.Category.CategoryName</option>
+</select>
+     }*@
 
     <button type="submit" class="btn btn-primary mt-2">Submit</button>
 </form>
-
-                    @* @foreach (var category in Model.AvailableCategories)
-                     {
-                         <option value="@category.Id">@category.Name</option>
-                     }*@

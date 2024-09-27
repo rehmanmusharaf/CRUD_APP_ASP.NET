@@ -1,0 +1,20 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model ASP_CRUD_APP.Models.AddCategoryViewModel
+<h3 class="text-center otherclass">ADD Category</h3>
+<form method="post">
+    <div class="form-group">
+        <label asp-for="CategoryName" class="control-label"></label>
+        <input asp-for="CategoryName" class="form-control" aria-describedby="productnameHelp" placeholder="Enter Category Name" required />
+        <span asp-validation-for="CategoryName" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Submit</button>
+</form>
+
+@* @foreach (var category in Model.AvailableCategories)
+                     {
+                         <option value="@category.Id">@category.Name</option>
+                     }*@

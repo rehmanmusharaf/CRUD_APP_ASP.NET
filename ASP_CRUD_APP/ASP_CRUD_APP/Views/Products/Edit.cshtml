@@ -5,7 +5,7 @@
 }
 
 @model ASP_CRUD_APP.Models.Entities.Product
-<h1 class="text-center otherclass">Edit Student</h1>
+<h1 class="text-center otherclass">Edit Product</h1>
 @if(Model is null)
 {
     <p>No Student was Found with this id</p>
@@ -37,10 +37,10 @@ else
         <input asp-for="Tags" class="form-control" placeholder="Tags (comma-separated)" />
         <span asp-validation-for="Tags" class="text-danger"></span>
     </div>
-    <div class="form-group">
+            @* Category Feature Will Add In future *@
+@*    <div class="form-group">
         <label asp-for="ProductCategories" class="control-label">Categories</label>
         <select asp-for="ProductCategories" class="form-control" multiple>
-            @* Assuming you will populate ProductCategories dynamically *@
             <option value="1">Category One</option>
             <option value="2">Category Two</option>
             <option value="3">Category Three</option>
@@ -48,7 +48,7 @@ else
 
         </select>
         <span asp-validation-for="ProductCategories" class="text-danger"></span>
-    </div>
+    </div>*@
     <div class="mt-2">
     <button type="submit" class="btn btn-primary">Submit</button>
     <button type="submit" class="btn btn-danger ms-3" asp-action="Delete" asp-controller="Products">Delete</button>

@@ -1,0 +1,67 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model List<ASP_CRUD_APP.Models.Entities.Category>
+<!-- Add a search input to filter the table rows -->
+<h3 class="text-center otherclass">ALL Categories</h3>
+<div class="form-group d-flex justify-content-center flex-column">
+    <label for="searchTag" class="w-70 mb-1 fw-bold">Search by Name</label>
+    <input type="text" id="searchTag" name="searchTag" class="form-control w-70 " placeholder="Enter Name to search" onkeyup="filterProducts()">
+</div>
+
+<table class="table" id="productsTable">
+    <thead>
+        <tr>
+            <th scope="col">CategoryId</th>
+            <th scope="col">CategoryName</th>
+            @* <th scope="col">Quantity</th>
+            <th scope="col">Tags</th> <!-- Add a Tags column to your table -->*@
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.CategoryID</th>
+                <td># @item.CategoryName</td>
+               <td>
+                    <a asp-controller="Categories" asp-action="Edit" asp-route-id="@item.CategoryID">
+                        Edit
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Add JavaScript to filter table rows -->
+<script>
+    function filterProducts() {
+        // Get the value of the search input
+        let input = document.getElementById("searchTag").value.toLowerCase();
+
+        // Get all rows in the table
+        let table = document.getElementById("productsTable");
+        let rows = table.getElementsByTagName("tr");
+
+        // Loop through all table rows (excluding the header)
+        for (let i = 1; i < rows.length; i++) {
+            let tagsCell = rows[i].getElementsByTagName("td")[0]; // Assuming Tags is the 4th column (index 3)
+            if (tagsCell) {
+                // Get the text content of the Tags cell and convert to lowercase
+                let tags = tagsCell.textContent.toLowerCase();
+
+                // Check if the tag in the search input is present in the Tags column
+                if (tags.includes(input)) {
+                    rows[i].style.display = ""; // Show the row if the tag matches
+                } else {
+                    rows[i].style.display = "none"; // Hide the row if the tag doesn't match
+                }
+            }
+        }
+    }
+</script>

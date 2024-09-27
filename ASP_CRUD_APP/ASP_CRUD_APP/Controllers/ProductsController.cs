@@ -59,8 +59,10 @@ namespace ASP_CRUD_APP.Controllers
                 product.Price = viewModel.Price;
                 product.Quantity = viewModel.Quantity;
                 product.Tags = viewModel.Tags;
+                product.ProductCategories = new List<ProductCategory>();
+                //product.ProductCategories.Add(new ProductCategory {CategoryName = "fashion" });
                 product.ProductCategories = viewModel.ProductCategories;
-               await dbContext.SaveChangesAsync();
+                await dbContext.SaveChangesAsync();
             }
             return RedirectToAction("List","Products");
         }
