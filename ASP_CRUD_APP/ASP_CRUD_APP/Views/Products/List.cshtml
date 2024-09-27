@@ -3,34 +3,6 @@
  *@
  @{
  }
-@*
- @model List<ASP_CRUD_APP.Models.Entities.Product>;
- <table class="table">
-     <thead>
-         <tr>
-             <th scope="col">ProductName</th>
-             <th scope="col">Price</th>
-             <th scope="col">Quantity</th>
-             <th scope="col"></th>
-         </tr>
-     </thead>
-     <tbody>
-         @foreach(var item in Model)
-         {             
-         <tr>
-             <th scope="row">@item.ProductName</th>
-             <td>@item.Price</td>
-             <td>@item.Quantity</td>
-             <td>
-                 <a asp-controller="Products" asp-action="Edit" asp-route-id="@item.ProductID">
-                 Edit
-                 </a>
-                 </td>
-         </tr>
-         }
-     </tbody>
- </table>*@
-
 
 @model List<ASP_CRUD_APP.Models.Entities.Product>
 
